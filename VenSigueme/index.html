@@ -854,11 +854,11 @@
         }
 
         // Crear el mensaje
-        let mensaje = "*🎶 Repertorio para la Eucaristía:*\n\n";
+        let mensaje = "*Repertorio para la Eucaristía:*\n\n";
         playlist.forEach((song, index) => {
             mensaje += `${index + 1}. ${song.title}\n`;
         });
-        mensaje += "\n🔗 Ver canciones aquí: " + window.location.href;
+        mensaje += "\n Ver canciones aquí: " + window.location.href;
 
         // Abrir WhatsApp
         let url = "https://wa.me/?text=" + encodeURIComponent(mensaje);
@@ -894,3 +894,4 @@
 
 </body>
 </html>
+
