@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coro VenSigueme - Repertorio Digital</title>
+    <style>
+        /* ESTILOS GENERALES */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        /* BUSCADOR */
+        #searchBar {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-sizing: border-box;
+        }
+
+        /* TARJETAS */
+        .song-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background: white;
+            overflow: hidden;
+        }
+
+        .song-header {
+            padding: 15px 20px;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.1em;
+            transition: background-color 0.2s;
+        }
+        
+        .song-header:hover {
+            background-color: #e2e6ea;
+            color: #0056b3;
+        }
+
+        /* CONTENEDOR DE LA IMAGEN */
+        .song-content {
+            display: none; /* Oculto por defecto */
+            padding: 10px;
+            text-align: center;
+            background: #fff;
+            border-top: 1px solid #eee;
+        }
+
+        /* ESTILO DE LA IMAGEN DE LA CANCIÓN */
+        .song-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* CLASE PARA MOSTRAR */
+        .song-card.active .song-content {
+            display: block;
+        }
+        
+        /* CLASE PARA ROTAR EL ÍCONO */
+        .song-card.active .icon {
+            transform: rotate(180deg);
+            display: inline-block;
+        }
+
+        /* TEXTO OCULTO PARA EL BUSCADOR */
+        .search-tags {
+            display: none;
+        }
+        
+        /* PEQUEÑO TEXTO DE AYUDA */
+        .help-text {
+            text-align: center;
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🎵 Cancionero VenSigueme</h1>
+    <p class="help-text">Escribe el título o parte de la letra para buscar</p>
+    
+    <input type="text" id="searchBar" onkeyup="searchSongs()" placeholder="🔍 Buscar canción...">
+
+    <div id="songList">
+
+        <!-- 1. VEN VEN A NUESTRAS ALMAS Y DULCE JESUS MIO -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                1. VEN VEN A NUESTRAS ALMAS Y DULCE JESUS MIO
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/ven-ven-a-nuestras-almas-y-dulce-jesus-mio.jpg" alt="Partitura Ven Ven A Nuestras Almas Y Dulce Jesus Mio" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    ven ven a nuestras almas y dulce jesus mio ven ven a nuestras almas y dulce jesus mio
+                </div>
+            </div>
+        </div>
+    
+        <!-- 2. A LA NANITA NANA -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                2. A LA NANITA NANA
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/a-la-nanita-nana.jpg" alt="Partitura A La Nanita Nana" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    a la nanita nana a la nanita nana
+                </div>
+            </div>
+        </div>
+    
+        <!-- 3. QUISIERA AL MUNDO -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                3. QUISIERA AL MUNDO
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/quisiera-al-mundo.jpg" alt="Partitura Quisiera Al Mundo" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    quisiera al mundo quisiera al mundo
+                </div>
+            </div>
+        </div>
+    
+        <!-- 4. ZAGALILLOS -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                4. ZAGALILLOS
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/zagalillos.jpg" alt="Partitura Zagalillos" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    zagalillos zagalillos
+                </div>
+            </div>
+        </div>
+    
+        <!-- 5. GRANITO DE MOSTAZA -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                5. GRANITO DE MOSTAZA
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/granito-de-mostaza.jpg" alt="Partitura Granito De Mostaza" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    granito de mostaza granito de mostaza
+                </div>
+            </div>
+        </div>
+    
+        <!-- 6. SALVE REINA Y MADRE -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                6. SALVE REINA Y MADRE
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/salve-reina-y-madre.jpg" alt="Partitura Salve Reina Y Madre" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    salve reina y madre salve reina y madre
+                </div>
+            </div>
+        </div>
+    
+        <!-- 7. SALVE REINA Y MADRE -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                7. SALVE REINA Y MADRE
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/salve-reina-y-madre-1.jpg" alt="Partitura Salve Reina Y Madre" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    salve reina y madre salve reina y madre
+                </div>
+            </div>
+        </div>
+    
+        <!-- 8. CAMPANA SOBRE CAMPANA -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                8. CAMPANA SOBRE CAMPANA
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/campana-sobre-campana.jpg" alt="Partitura Campana Sobre Campana" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    campana sobre campana campana sobre campana
+                </div>
+            </div>
+        </div>
+    
+        <!-- 9. CONTIGO MARIA -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                9. CONTIGO MARIA
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/contigo-maria.jpg" alt="Partitura Contigo Maria" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    contigo maria contigo maria
+                </div>
+            </div>
+        </div>
+    
+        <!-- 10. TUTAINA -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                10. TUTAINA
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/tutaina.jpg" alt="Partitura Tutaina" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    tutaina tutaina
+                </div>
+            </div>
+        </div>
+    
+        <!-- 11. ANTON TIRULIRULIRU -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                11. ANTON TIRULIRULIRU
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/anton-tiruliruliru.jpg" alt="Partitura Anton Tiruliruliru" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    anton tiruliruliru anton tiruliruliru
+                </div>
+            </div>
+        </div>
+    
+        <!-- 12. EL BURRITO SABANERO -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                12. EL BURRITO SABANERO
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/el-burrito-sabanero.jpg" alt="Partitura El Burrito Sabanero" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    el burrito sabanero el burrito sabanero
+                </div>
+            </div>
+        </div>
+    
+        <!-- 13. JUNTO ATI MARIA -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                13. JUNTO ATI MARIA
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/junto-ati-maria.jpg" alt="Partitura Junto Ati Maria" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    junto ati maria junto ati maria
+                </div>
+            </div>
+        </div>
+    
+        <!-- 14. SANTO ES EL SENOR -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                14. SANTO ES EL SENOR
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/santo-es-el-senor-1.jpg" alt="Partitura Santo Es El Senor" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    santo es el senor santo es el senor
+                </div>
+            </div>
+        </div>
+    
+        <!-- 15. LOS REYES MAGOS -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                15. LOS REYES MAGOS
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/los-reyes-magos.jpg" alt="Partitura Los Reyes Magos" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    los reyes magos los reyes magos
+                </div>
+            </div>
+        </div>
+    
+        <!-- 16. GRACIAS PADRE -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                16. GRACIAS PADRE
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/gracias-padre.jpg" alt="Partitura Gracias Padre" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    gracias padre gracias padre
+                </div>
+            </div>
+        </div>
+    
+        <!-- 17. LEVANTATE SALMO 68 -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                17. LEVANTATE SALMO 68
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/levantate-salmo-68.jpg" alt="Partitura Levantate Salmo 68" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    levantate salmo 68 levantate salmo 68
+                </div>
+            </div>
+        </div>
+    
+        <!-- 18. MARIA MIRAME -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                18. MARIA MIRAME
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/maria-mirame-1.jpg" alt="Partitura Maria Mirame" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    maria mirame maria mirame
+                </div>
+            </div>
+        </div>
+    
+        <!-- 19. LOS PECES EN EL RIO -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                19. LOS PECES EN EL RIO
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/los-peces-en-el-rio.jpg" alt="Partitura Los Peces En El Rio" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    los peces en el rio los peces en el rio
+                </div>
+            </div>
+        </div>
+    
+        <!-- 20. EL PADRE ABRAHAM -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                20. EL PADRE ABRAHAM
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/el-padre-abraham.jpg" alt="Partitura El Padre Abraham" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    el padre abraham el padre abraham
+                </div>
+            </div>
+        </div>
+    
+        <!-- 21. ALIANZA -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                21. ALIANZA
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/alianza.jpg" alt="Partitura Alianza" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    alianza alianza
+                </div>
+            </div>
+        </div>
+    
+        <!-- 22. EL TAMBORILERO -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                22. EL TAMBORILERO
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/el-tamborilero-1.jpg" alt="Partitura El Tamborilero" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    el tamborilero el tamborilero
+                </div>
+            </div>
+        </div>
+    
+        <!-- 23. PREPARAD EL CAMINO -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                23. PREPARAD EL CAMINO
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/preparad-el-camino.jpg" alt="Partitura Preparad El Camino" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    preparad el camino preparad el camino
+                </div>
+            </div>
+        </div>
+    
+        <!-- 24. SANTAMARIA DEL CAMINO -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                24. SANTAMARIA DEL CAMINO
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/santamaria-del-camino.jpg" alt="Partitura Santamaria Del Camino" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    santamaria del camino santamaria del camino
+                </div>
+            </div>
+        </div>
+    
+        <!-- 25. BENDITA SEA TU PUREZA -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                25. BENDITA SEA TU PUREZA
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/bendita-sea-tu-pureza.jpg" alt="Partitura Bendita Sea Tu Pureza" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    bendita sea tu pureza bendita sea tu pureza
+                </div>
+            </div>
+        </div>
+    
+        <!-- 26. YA LLEGO LA FECHA -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                26. YA LLEGO LA FECHA
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/ya-llego-la-fecha.jpg" alt="Partitura Ya Llego La Fecha" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    ya llego la fecha ya llego la fecha
+                </div>
+            </div>
+        </div>
+    
+        <!-- 27. YO TENGO UN AMIGO -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                27. YO TENGO UN AMIGO
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/yo-tengo-un-amigo.jpg" alt="Partitura Yo Tengo Un Amigo" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    yo tengo un amigo yo tengo un amigo
+                </div>
+            </div>
+        </div>
+    
+        <!-- 28. UNA ESPIGA DORADA POR EL SOL -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                28. UNA ESPIGA DORADA POR EL SOL
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/una-espiga-dorada-por-el-sol.jpg" alt="Partitura Una Espiga Dorada Por El Sol" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    una espiga dorada por el sol una espiga dorada por el sol
+                </div>
+            </div>
+        </div>
+    
+        <!-- 29. CANTAD GOZAD ALELUYA -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                29. CANTAD GOZAD ALELUYA
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/cantad-gozad-aleluya.jpg" alt="Partitura Cantad Gozad Aleluya" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    cantad gozad aleluya cantad gozad aleluya
+                </div>
+            </div>
+        </div>
+    
+        <!-- 30. GLORIA A DIOS -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                30. GLORIA A DIOS
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/gloria-a-dios.jpg" alt="Partitura Gloria A Dios" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    gloria a dios gloria a dios
+                </div>
+            </div>
+        </div>
+    
+        <!-- 31. VEN A LA FIESTA -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                31. VEN A LA FIESTA
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/ven-a-la-fiesta.jpg" alt="Partitura Ven A La Fiesta" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    ven a la fiesta ven a la fiesta
+                </div>
+            </div>
+        </div>
+    
+        <!-- 32. GLORIA GLORIA ALELUYA -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                32. GLORIA GLORIA ALELUYA
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/gloria-gloria-aleluya.jpg" alt="Partitura Gloria Gloria Aleluya" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    gloria gloria aleluya gloria gloria aleluya
+                </div>
+            </div>
+        </div>
+    
+        <!-- 33. JESUS ESTA PASANDO -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                33. JESUS ESTA PASANDO
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/jesus-esta-pasando.jpg" alt="Partitura Jesus Esta Pasando" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    jesus esta pasando jesus esta pasando
+                </div>
+            </div>
+        </div>
+    
+        <!-- 34. PADRE NUESTRO -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                34. PADRE NUESTRO
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/padre-nuestro.jpg" alt="Partitura Padre Nuestro" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    padre nuestro padre nuestro
+                </div>
+            </div>
+        </div>
+    
+        <!-- 35. TU PUEBLO TE ESPERA -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                35. TU PUEBLO TE ESPERA
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/tu-pueblo-te-espera.jpg" alt="Partitura Tu Pueblo Te Espera" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    tu pueblo te espera tu pueblo te espera
+                </div>
+            </div>
+        </div>
+    
+        <!-- 36. CAMINARE -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                36. CAMINARE
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/caminare.jpg" alt="Partitura Caminare" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    caminare caminare
+                </div>
+            </div>
+        </div>
+    
+        <!-- 37. TEN PIEDAD POR LOS NINOS Y LAS FLORES -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                37. TEN PIEDAD POR LOS NINOS Y LAS FLORES
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/ten-piedad-por-los-ninos-y-las-flores.jpg" alt="Partitura Ten Piedad Por Los Ninos Y Las Flores" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    ten piedad por los ninos y las flores ten piedad por los ninos y las flores
+                </div>
+            </div>
+        </div>
+    
+        <!-- 38. EL CUERPO Y SANGRE ERES TU -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                38. EL CUERPO Y SANGRE ERES TU
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/el-cuerpo-y-sangre-eres-tu.jpg" alt="Partitura El Cuerpo Y Sangre Eres Tu" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    el cuerpo y sangre eres tu el cuerpo y sangre eres tu
+                </div>
+            </div>
+        </div>
+    
+        <!-- 39. ALELU ALELU ALELU ALELUYA -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                39. ALELU ALELU ALELU ALELUYA
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/alelu-alelu-alelu-aleluya.jpg" alt="Partitura Alelu Alelu Alelu Aleluya" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    alelu alelu alelu aleluya alelu alelu alelu aleluya
+                </div>
+            </div>
+        </div>
+    
+        <!-- 40. CORDERO -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                40. CORDERO
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/cordero.jpg" alt="Partitura Cordero" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    cordero cordero
+                </div>
+            </div>
+        </div>
+    
+        <!-- 41. SANTO SANTO SANTO ANGELES -->
+        <div class="song-card">
+            <div class="song-header" onclick="toggle(this)">
+                41. SANTO SANTO SANTO ANGELES
+                <span class="icon">▼</span>
+            </div>
+            <div class="song-content">
+                <img src="canciones/santo-santo-santo-angeles.jpg" alt="Partitura Santo Santo Santo Angeles" class="song-img" loading="lazy">
+                <div class="search-tags">
+                    santo santo santo angeles santo santo santo angeles
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+<script>
+    function toggle(header) {
+        var card = header.parentElement;
+        card.classList.toggle('active');
+    }
+
+    function searchSongs() {
+        var input = document.getElementById('searchBar');
+        var filter = input.value.toUpperCase();
+        var cards = document.getElementsByClassName('song-card');
+
+        for (var i = 0; i < cards.length; i++) {
+            var card = cards[i];
+            var text = card.innerText || card.textContent;
+            // Buscamos tanto el texto visible como el oculto (search-tags)
+            if (text.toUpperCase().indexOf(filter) > -1) {
+                card.style.display = "";
+            } else {
+                card.style.display = "none";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
