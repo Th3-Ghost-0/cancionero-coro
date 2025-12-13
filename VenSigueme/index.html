@@ -11,7 +11,7 @@
             background-color: #f4f6f8;
             margin: 0;
             padding: 20px;
-            padding-bottom: 100px; /* Espacio extra al final */
+            padding-bottom: 100px;
         }
         .container {
             max-width: 800px;
@@ -21,175 +21,111 @@
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
+        
+        /* CABECERA */
+        header { text-align: center; margin-bottom: 20px; }
+        .logo-fundacion { max-width: 150px; height: auto; margin-bottom: 10px; border-radius: 8px; }
+        .author-credit { font-size: 0.85em; color: #7f8c8d; margin-top: 5px; font-style: italic; }
+        h1 { text-align: center; color: #2c3e50; margin-bottom: 10px; margin-top: 5px; }
 
-        /* --- PANEL DE EUCARISTÍA (LISTA AMARILLA) --- */
+        /* PANEL LISTA (AMARILLO) */
         #playlist-panel {
-            background-color: #fff3cd; /* Fondo amarillo */
+            background-color: #fff3cd;
             border: 2px solid #ffeeba;
             border-radius: 8px;
             padding: 15px;
             margin-bottom: 30px;
         }
         .playlist-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-            gap: 10px;
+            display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;
         }
-        .playlist-header h2 {
-            margin: 0;
-            font-size: 1.2em;
-            color: #856404;
-        }
+        .playlist-header h2 { margin: 0; font-size: 1.2em; color: #856404; }
         
-        /* Botones del panel */
-        .btn-whatsapp {
-            background-color: #25D366; /* Verde WhatsApp */
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9em;
-            font-weight: bold;
-            margin-right: 5px;
-        }
+        .btn-whatsapp { background-color: #25D366; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-weight: bold; }
         .btn-whatsapp:hover { background-color: #128C7E; }
-
-        .btn-clear {
-            background-color: #dc3545; /* Rojo Borrar */
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9em;
-        }
+        .btn-clear { background-color: #dc3545; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; }
         .btn-clear:hover { background-color: #c82333; }
         
-        /* Lista de canciones seleccionadas */
-        #playlist-items {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+        #playlist-items { list-style: none; padding: 0; margin: 0; }
         .playlist-item {
-            background: white;
-            padding: 10px 12px;
-            margin-bottom: 5px;
-            border-radius: 4px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            border-left: 4px solid #25D366;
+            background: white; padding: 10px 12px; margin-bottom: 5px; border-radius: 4px;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-left: 4px solid #25D366;
         }
-        .playlist-item a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            flex-grow: 1;
-            cursor: pointer;
-        }
-        .playlist-placeholder {
-            color: #856404;
-            font-style: italic;
-            font-size: 0.9em;
-            text-align: center;
-            padding: 10px;
-        }
+        .playlist-item a { text-decoration: none; color: #333; font-weight: 500; flex-grow: 1; cursor: pointer; }
+        .playlist-placeholder { color: #856404; font-style: italic; text-align: center; padding: 10px; }
 
-        /* --- BUSCADOR --- */
+        /* BUSCADOR */
         #searchBar {
-            width: 100%;
-            padding: 15px;
-            font-size: 18px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-sizing: border-box;
+            width: 100%; padding: 15px; font-size: 18px;
+            border: 2px solid #ddd; border-radius: 8px; margin-bottom: 20px; box-sizing: border-box;
         }
-        #searchBar:focus {
-            outline: none;
-            border-color: #3498db;
-        }
+        #searchBar:focus { outline: none; border-color: #3498db; }
 
-        /* --- TARJETAS DE CANCIONES --- */
+        /* TARJETAS */
         .song-card {
-            border: 1px solid #eee;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            background: white;
-            overflow: hidden;
-            position: relative; /* Necesario para posicionar el checkbox */
+            border: 1px solid #eee; border-radius: 8px; margin-bottom: 10px;
+            background: white; overflow: hidden; position: relative;
         }
+        /* Clase especial para ocultar tarjetas rotas permanentemente */
+        .song-card.broken-link { display: none !important; }
 
-        /* Cabecera de la canción (Título) */
         .song-header {
-            padding: 15px 15px 15px 50px; /* Padding izquierdo grande para el checkbox */
-            background-color: #f8f9fa;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            color: #2c3e50;
-            font-size: 1.1em;
-            transition: background-color 0.2s;
-            min-height: 30px;
+            padding: 15px 15px 15px 50px; background-color: #f8f9fa; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            font-weight: 600; color: #2c3e50; font-size: 1.1em;
+            transition: background-color 0.2s; min-height: 30px;
         }
-        .song-header:hover {
-            background-color: #e2e6ea;
-            color: #0056b3;
-        }
-
-        /* Checkbox de selección */
+        .song-header:hover { background-color: #e2e6ea; color: #0056b3; }
         .song-checkbox {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%) scale(1.5); /* Centrado vertical y más grande */
-            cursor: pointer;
-            z-index: 10;
+            position: absolute; left: 15px; top: 50%; transform: translateY(-50%) scale(1.5);
+            cursor: pointer; z-index: 10;
         }
-
-        /* Contenido (Imagen) */
         .song-content {
-            display: none; /* Oculto por defecto */
-            padding: 10px;
-            text-align: center;
-            background: #fff;
-            border-top: 1px solid #eee;
+            display: none; padding: 10px; text-align: center; background: #fff; border-top: 1px solid #eee;
         }
         .song-img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
-        /* Estados Activos */
         .song-card.active .song-content { display: block; }
-        .song-card.active .icon { transform: rotate(180deg); display: inline-block; }
-        
-        /* Texto oculto para búsqueda */
         .search-tags { display: none; }
-
+    
+        /* --- ESTILOS PESTAÑAS (TABS) --- */
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .tab-btn {
+            padding: 10px 20px;
+            border: none;
+            background-color: #e9ecef;
+            color: #495057;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .tab-btn.active {
+            background-color: #007bff;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,123,255,0.3);
+        }
+        .tab-btn:hover:not(.active) {
+            background-color: #dee2e6;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>🎵 Cancionero VenSigueme</h1>
+    <header>
+        <img src="canciones/logo-fundacion.jpg" alt="Logo Fundación" class="logo-fundacion" onerror="this.style.display='none'">
+        <h1>🎵 Cancionero VenSigueme</h1>
+        <div class="author-credit">Elaborado por Jonathan Gonzalez</div>
+    </header>
 
-    <!-- PANEL DE EUCARISTÍA -->
     <div id="playlist-panel">
         <div class="playlist-header">
             <h2>✝️ Eucaristía de Hoy</h2>
@@ -199,623 +135,300 @@
             </div>
         </div>
         <ul id="playlist-items">
-            <div class="playlist-placeholder">Selecciona canciones abajo para armar la misa...</div>
+            <div class="playlist-placeholder">Selecciona canciones abajo...</div>
         </ul>
     </div>
 
-    <input type="text" id="searchBar" onkeyup="searchSongs()" placeholder="🔍 Buscar canción por título o letra...">
-
-    <div id="songList">
-
-        <!-- 1. VEN VEN A NUESTRAS ALMAS -->
-        <div class="song-card" id="song-1">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('1', 'VEN VEN A NUESTRAS ALMAS')">
-            <div class="song-header" onclick="toggle(this)">
-                1. VEN VEN A NUESTRAS ALMAS
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/ven-ven-a-nuestras-almas-y-dulce-jesus-mio.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">ven ven a nuestras almas dulce jesus mio</div>
-            </div>
-        </div>
-    
-        <!-- 2. A LA NANITA NANA -->
-        <div class="song-card" id="song-2">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('2', 'A LA NANITA NANA')">
-            <div class="song-header" onclick="toggle(this)">
-                2. A LA NANITA NANA
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/a-la-nanita-nana.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">a la nanita nana</div>
-            </div>
-        </div>
-    
-        <!-- 3. QUISIERA AL MUNDO -->
-        <div class="song-card" id="song-3">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('3', 'QUISIERA AL MUNDO')">
-            <div class="song-header" onclick="toggle(this)">
-                3. QUISIERA AL MUNDO
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/quisiera-al-mundo.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">quisiera al mundo</div>
-            </div>
-        </div>
-    
-        <!-- 4. ZAGALILLOS -->
-        <div class="song-card" id="song-4">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('4', 'ZAGALILLOS')">
-            <div class="song-header" onclick="toggle(this)">
-                4. ZAGALILLOS
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/zagalillos.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">zagalillos</div>
-            </div>
-        </div>
-    
-        <!-- 5. GRANITO DE MOSTAZA -->
-        <div class="song-card" id="song-5">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('5', 'GRANITO DE MOSTAZA')">
-            <div class="song-header" onclick="toggle(this)">
-                5. GRANITO DE MOSTAZA
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/granito-de-mostaza.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">granito de mostaza</div>
-            </div>
-        </div>
-    
-        <!-- 6. SALVE REINA Y MADRE -->
-        <div class="song-card" id="song-6">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('6', 'SALVE REINA Y MADRE')">
-            <div class="song-header" onclick="toggle(this)">
-                6. SALVE REINA Y MADRE
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/salve-reina-y-madre.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">salve reina y madre</div>
-            </div>
-        </div>
-    
-        <!-- 7. SALVE REINA Y MADRE (VERSION 2) -->
-        <div class="song-card" id="song-7">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('7', 'SALVE REINA Y MADRE (V2)')">
-            <div class="song-header" onclick="toggle(this)">
-                7. SALVE REINA Y MADRE (V2)
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/salve-reina-y-madre-1.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">salve reina y madre 2</div>
-            </div>
-        </div>
-    
-        <!-- 8. CAMPANA SOBRE CAMPANA -->
-        <div class="song-card" id="song-8">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('8', 'CAMPANA SOBRE CAMPANA')">
-            <div class="song-header" onclick="toggle(this)">
-                8. CAMPANA SOBRE CAMPANA
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/campana-sobre-campana.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">campana sobre campana</div>
-            </div>
-        </div>
-    
-        <!-- 9. CONTIGO MARIA -->
-        <div class="song-card" id="song-9">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('9', 'CONTIGO MARIA')">
-            <div class="song-header" onclick="toggle(this)">
-                9. CONTIGO MARIA
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/contigo-maria.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">contigo maria</div>
-            </div>
-        </div>
-    
-        <!-- 10. TUTAINA -->
-        <div class="song-card" id="song-10">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('10', 'TUTAINA')">
-            <div class="song-header" onclick="toggle(this)">
-                10. TUTAINA
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/tutaina.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">tutaina</div>
-            </div>
-        </div>
-    
-        <!-- 11. ANTON TIRULIRULIRU -->
-        <div class="song-card" id="song-11">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('11', 'ANTON TIRULIRULIRU')">
-            <div class="song-header" onclick="toggle(this)">
-                11. ANTON TIRULIRULIRU
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/anton-tiruliruliru.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">anton tiruliruliru</div>
-            </div>
-        </div>
-    
-        <!-- 12. EL BURRITO SABANERO -->
-        <div class="song-card" id="song-12">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('12', 'EL BURRITO SABANERO')">
-            <div class="song-header" onclick="toggle(this)">
-                12. EL BURRITO SABANERO
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/el-burrito-sabanero.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">el burrito sabanero</div>
-            </div>
-        </div>
-    
-        <!-- 13. JUNTO A TI MARIA -->
-        <div class="song-card" id="song-13">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('13', 'JUNTO A TI MARIA')">
-            <div class="song-header" onclick="toggle(this)">
-                13. JUNTO A TI MARIA
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/junto-ati-maria.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">junto a ti maria</div>
-            </div>
-        </div>
-    
-        <!-- 14. SANTO ES EL SEÑOR -->
-        <div class="song-card" id="song-14">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('14', 'SANTO ES EL SEÑOR')">
-            <div class="song-header" onclick="toggle(this)">
-                14. SANTO ES EL SEÑOR
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/santo-es-el-senor-1.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">santo es el senor</div>
-            </div>
-        </div>
-    
-        <!-- 15. LOS REYES MAGOS -->
-        <div class="song-card" id="song-15">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('15', 'LOS REYES MAGOS')">
-            <div class="song-header" onclick="toggle(this)">
-                15. LOS REYES MAGOS
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/los-reyes-magos.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">los reyes magos</div>
-            </div>
-        </div>
-    
-        <!-- 16. GRACIAS PADRE -->
-        <div class="song-card" id="song-16">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('16', 'GRACIAS PADRE')">
-            <div class="song-header" onclick="toggle(this)">
-                16. GRACIAS PADRE
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/gracias-padre.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">gracias padre</div>
-            </div>
-        </div>
-    
-        <!-- 17. LEVANTATE SALMO 68 -->
-        <div class="song-card" id="song-17">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('17', 'LEVANTATE SALMO 68')">
-            <div class="song-header" onclick="toggle(this)">
-                17. LEVANTATE SALMO 68
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/levantate-salmo-68.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">levantate salmo 68</div>
-            </div>
-        </div>
-    
-        <!-- 18. MARIA MIRAME -->
-        <div class="song-card" id="song-18">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('18', 'MARIA MIRAME')">
-            <div class="song-header" onclick="toggle(this)">
-                18. MARIA MIRAME
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/maria-mirame-1.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">maria mirame</div>
-            </div>
-        </div>
-    
-        <!-- 19. LOS PECES EN EL RIO -->
-        <div class="song-card" id="song-19">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('19', 'LOS PECES EN EL RIO')">
-            <div class="song-header" onclick="toggle(this)">
-                19. LOS PECES EN EL RIO
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/los-peces-en-el-rio.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">los peces en el rio</div>
-            </div>
-        </div>
-    
-        <!-- 20. EL PADRE ABRAHAM -->
-        <div class="song-card" id="song-20">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('20', 'EL PADRE ABRAHAM')">
-            <div class="song-header" onclick="toggle(this)">
-                20. EL PADRE ABRAHAM
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/el-padre-abraham.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">el padre abraham</div>
-            </div>
-        </div>
-    
-        <!-- 21. ALIANZA -->
-        <div class="song-card" id="song-21">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('21', 'ALIANZA')">
-            <div class="song-header" onclick="toggle(this)">
-                21. ALIANZA
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/alianza.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">alianza</div>
-            </div>
-        </div>
-    
-        <!-- 22. EL TAMBORILERO -->
-        <div class="song-card" id="song-22">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('22', 'EL TAMBORILERO')">
-            <div class="song-header" onclick="toggle(this)">
-                22. EL TAMBORILERO
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/el-tamborilero-1.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">el tamborilero</div>
-            </div>
-        </div>
-    
-        <!-- 23. PREPARAD EL CAMINO -->
-        <div class="song-card" id="song-23">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('23', 'PREPARAD EL CAMINO')">
-            <div class="song-header" onclick="toggle(this)">
-                23. PREPARAD EL CAMINO
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/preparad-el-camino.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">preparad el camino</div>
-            </div>
-        </div>
-    
-        <!-- 24. SANTAMARIA DEL CAMINO -->
-        <div class="song-card" id="song-24">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('24', 'SANTAMARIA DEL CAMINO')">
-            <div class="song-header" onclick="toggle(this)">
-                24. SANTAMARIA DEL CAMINO
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/santamaria-del-camino.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">santamaria del camino</div>
-            </div>
-        </div>
-    
-        <!-- 25. BENDITA SEA TU PUREZA -->
-        <div class="song-card" id="song-25">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('25', 'BENDITA SEA TU PUREZA')">
-            <div class="song-header" onclick="toggle(this)">
-                25. BENDITA SEA TU PUREZA
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/bendita-sea-tu-pureza.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">bendita sea tu pureza</div>
-            </div>
-        </div>
-    
-        <!-- 26. YA LLEGO LA FECHA -->
-        <div class="song-card" id="song-26">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('26', 'YA LLEGO LA FECHA')">
-            <div class="song-header" onclick="toggle(this)">
-                26. YA LLEGO LA FECHA
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/ya-llego-la-fecha.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">ya llego la fecha</div>
-            </div>
-        </div>
-    
-        <!-- 27. YO TENGO UN AMIGO -->
-        <div class="song-card" id="song-27">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('27', 'YO TENGO UN AMIGO')">
-            <div class="song-header" onclick="toggle(this)">
-                27. YO TENGO UN AMIGO
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/yo-tengo-un-amigo.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">yo tengo un amigo</div>
-            </div>
-        </div>
-    
-        <!-- 28. UNA ESPIGA DORADA -->
-        <div class="song-card" id="song-28">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('28', 'UNA ESPIGA DORADA')">
-            <div class="song-header" onclick="toggle(this)">
-                28. UNA ESPIGA DORADA
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/una-espiga-dorada-por-el-sol.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">una espiga dorada</div>
-            </div>
-        </div>
-    
-        <!-- 29. CANTAD GOZAD ALELUYA -->
-        <div class="song-card" id="song-29">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('29', 'CANTAD GOZAD ALELUYA')">
-            <div class="song-header" onclick="toggle(this)">
-                29. CANTAD GOZAD ALELUYA
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/cantad-gozad-aleluya.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">cantad gozad aleluya</div>
-            </div>
-        </div>
-    
-        <!-- 30. GLORIA A DIOS -->
-        <div class="song-card" id="song-30">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('30', 'GLORIA A DIOS')">
-            <div class="song-header" onclick="toggle(this)">
-                30. GLORIA A DIOS
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/gloria-a-dios.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">gloria a dios</div>
-            </div>
-        </div>
-    
-        <!-- 31. VEN A LA FIESTA -->
-        <div class="song-card" id="song-31">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('31', 'VEN A LA FIESTA')">
-            <div class="song-header" onclick="toggle(this)">
-                31. VEN A LA FIESTA
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/ven-a-la-fiesta.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">ven a la fiesta</div>
-            </div>
-        </div>
-    
-        <!-- 32. GLORIA GLORIA ALELUYA -->
-        <div class="song-card" id="song-32">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('32', 'GLORIA GLORIA ALELUYA')">
-            <div class="song-header" onclick="toggle(this)">
-                32. GLORIA GLORIA ALELUYA
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/gloria-gloria-aleluya.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">gloria gloria aleluya</div>
-            </div>
-        </div>
-    
-        <!-- 33. JESUS ESTA PASANDO -->
-        <div class="song-card" id="song-33">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('33', 'JESUS ESTA PASANDO')">
-            <div class="song-header" onclick="toggle(this)">
-                33. JESUS ESTA PASANDO
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/jesus-esta-pasando.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">jesus esta pasando</div>
-            </div>
-        </div>
-    
-        <!-- 34. PADRE NUESTRO -->
-        <div class="song-card" id="song-34">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('34', 'PADRE NUESTRO')">
-            <div class="song-header" onclick="toggle(this)">
-                34. PADRE NUESTRO
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/padre-nuestro.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">padre nuestro</div>
-            </div>
-        </div>
-    
-        <!-- 35. TU PUEBLO TE ESPERA -->
-        <div class="song-card" id="song-35">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('35', 'TU PUEBLO TE ESPERA')">
-            <div class="song-header" onclick="toggle(this)">
-                35. TU PUEBLO TE ESPERA
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/tu-pueblo-te-espera.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">tu pueblo te espera</div>
-            </div>
-        </div>
-    
-        <!-- 36. CAMINARE -->
-        <div class="song-card" id="song-36">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('36', 'CAMINARE')">
-            <div class="song-header" onclick="toggle(this)">
-                36. CAMINARE
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/caminare.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">caminare</div>
-            </div>
-        </div>
-    
-        <!-- 37. TEN PIEDAD -->
-        <div class="song-card" id="song-37">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('37', 'TEN PIEDAD')">
-            <div class="song-header" onclick="toggle(this)">
-                37. TEN PIEDAD
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/ten-piedad-por-los-ninos-y-las-flores.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">ten piedad</div>
-            </div>
-        </div>
-    
-        <!-- 38. EL CUERPO Y SANGRE -->
-        <div class="song-card" id="song-38">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('38', 'EL CUERPO Y SANGRE')">
-            <div class="song-header" onclick="toggle(this)">
-                38. EL CUERPO Y SANGRE
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/el-cuerpo-y-sangre-eres-tu.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">el cuerpo y sangre</div>
-            </div>
-        </div>
-    
-        <!-- 39. ALELU ALELU -->
-        <div class="song-card" id="song-39">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('39', 'ALELU ALELU')">
-            <div class="song-header" onclick="toggle(this)">
-                39. ALELU ALELU
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/alelu-alelu-alelu-aleluya.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">alelu alelu</div>
-            </div>
-        </div>
-    
-        <!-- 40. CORDERO -->
-        <div class="song-card" id="song-40">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('40', 'CORDERO')">
-            <div class="song-header" onclick="toggle(this)">
-                40. CORDERO
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/cordero.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">cordero</div>
-            </div>
-        </div>
-    
-        <!-- 41. SANTO SANTO ANGELES -->
-        <div class="song-card" id="song-41">
-            <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('41', 'SANTO SANTO ANGELES')">
-            <div class="song-header" onclick="toggle(this)">
-                41. SANTO SANTO ANGELES
-                <span class="icon">▼</span>
-            </div>
-            <div class="song-content">
-                <img src="canciones/santo-santo-santo-angeles.jpg" loading="lazy" class="song-img">
-                <div class="search-tags">santo santo angeles</div>
-            </div>
-        </div>
-        
+    <!-- NUEVO: Pestañas de Navegación -->
+    <div class="tabs-container">
+        <button class="tab-btn active" id="tab-total" onclick="switchTab('total')">📚 Librería Total</button>
+        <button class="tab-btn" id="tab-partial" onclick="switchTab('partial')">📋 Selección / Parcial</button>
     </div>
+
+    <input type="text" id="searchBar" oninput="searchSongs()" placeholder="🔍 Buscar canción por título o letra...">
+
+    <div id="songList"></div>
 </div>
 
 <script>
-    // ----------------------------------------------
-    // LOGICA DE LA LISTA DE EUCARISTÍA (JS)
-    // ----------------------------------------------
-    
-    // Al cargar la página, recuperar lo guardado
-    document.addEventListener('DOMContentLoaded', loadPlaylist);
+    // DATOS DE CANCIONES (196 Entradas combinadas)
+    const songs = [
+  { "title": "ACLAMAD A DIOS 1 DM", "src": "canciones/aclamad-a-dios-1-dm.jpg", "searchTerms": "aclamad a dios 1 dm" },
+  { "title": "ACLAMAD A DIOS", "src": "canciones/aclamad-a-dios.jpg", "searchTerms": "aclamad a dios" },
+  { "title": "ALELUYA ESCALA DM Y EM GABRIEL BELTRAN", "src": "canciones/aleluya-escala-dm-y-em-gabriel-beltran.jpg", "searchTerms": "aleluya escala dm y em gabriel beltran" },
+  { "title": "ALELUYA ESCALA DM EM F M GABRIEL BELTRAN", "src": "canciones/aleluya-escala-dm-em-f-m-gabriel-beltran.jpg", "searchTerms": "aleluya escala dm em f m gabriel beltran" },
+  { "title": "ALELUYA MARCOS WITT COPIA", "src": "canciones/aleluya-marcos-witt-copia.jpg", "searchTerms": "aleluya marcos witt copia" },
+  { "title": "ALELUYA RUMBA", "src": "canciones/aleluya-rumba.jpg", "searchTerms": "aleluya rumba" },
+  { "title": "ALGO ESTA CAYENDO 1", "src": "canciones/algo-esta-cayendo-1.jpg", "searchTerms": "algo esta cayendo 1" },
+  { "title": "ALGO ESTA CAYENDO", "src": "canciones/algo-esta-cayendo.jpg", "searchTerms": "algo esta cayendo" },
+  { "title": "AQUI ESTAS JESUS A", "src": "canciones/aqui-estas-jesus-a.jpg", "searchTerms": "aqui estas jesus a" },
+  { "title": "AQUI ESTAS JESUS C", "src": "canciones/aqui-estas-jesus-c.jpg", "searchTerms": "aqui estas jesus c" },
+  { "title": "AQUI ESTAS JESUS 1 A A", "src": "canciones/aqui-estas-jesus-1-a-a.jpg", "searchTerms": "aqui estas jesus 1 a a" },
+  { "title": "CANCION ALMA DE CRISTO SANTIFICAME 1 C", "src": "canciones/cancion-alma-de-cristo-santificame-1-c.jpg", "searchTerms": "cancion alma de cristo santificame 1 c" },
+  { "title": "CANCION LA FE DE MARIA 1 SON BYE FOUR", "src": "canciones/cancion-la-fe-de-maria-1-son-bye-four.jpg", "searchTerms": "cancion la fe de maria 1 son bye four" },
+  { "title": "CANCION LA FE DE MARIA SON BYE FOUR", "src": "canciones/cancion-la-fe-de-maria-son-bye-four.jpg", "searchTerms": "cancion la fe de maria son bye four" },
+  { "title": "CANCION LA FE DE MARIA", "src": "canciones/cancion-la-fe-de-maria.jpg", "searchTerms": "cancion la fe de maria" },
+  { "title": "CANCION MISERICORDIA FELIPE GOMEZ", "src": "canciones/cancion-misericordia-felipe-gomez.jpg", "searchTerms": "cancion misericordia felipe gomez" },
+  { "title": "CANCION NOS HAS LLAMADO AL DESIERTO 2", "src": "canciones/cancion-nos-has-llamado-al-desierto-2.jpg", "searchTerms": "cancion nos has llamado al desierto 2" },
+  { "title": "CANCION NOS HAS LLAMADO AL DESIERTO", "src": "canciones/cancion-nos-has-llamado-al-desierto.jpg", "searchTerms": "cancion nos has llamado al desierto" },
+  { "title": "CANCION SENOR QUIEN PUEDE ENTRAR", "src": "canciones/cancion-senor-quien-puede-entrar.jpg", "searchTerms": "cancion senor quien puede entrar" },
+  { "title": "CANCION VEN SIGUEME LUIS CARLOS", "src": "canciones/cancion-ven-sigueme-luis-carlos.jpg", "searchTerms": "cancion ven sigueme luis carlos" },
+  { "title": "CANCION VEN SIGUEME YO SOY EL QUE SOY LUIS CARLOS 1", "src": "canciones/cancion-ven-sigueme-yo-soy-el-que-soy-luis-carlos-1.jpg", "searchTerms": "cancion ven sigueme yo soy el que soy luis carlos 1" },
+  { "title": "CANCION YA LLEGO LA FECHA 1", "src": "canciones/cancion-ya-llego-la-fecha-1.jpg", "searchTerms": "cancion ya llego la fecha 1" },
+  { "title": "CANCION YA LLEGO LA FECHA", "src": "canciones/cancion-ya-llego-la-fecha.jpg", "searchTerms": "cancion ya llego la fecha" },
+  { "title": "CANCION BIENVENIDA TU MISERICORDIA 1 PABLO MARTINEZ", "src": "canciones/cancion-bienvenida-tu-misericordia-1-pablo-martinez.jpg", "searchTerms": "cancion bienvenida tu misericordia 1 pablo martinez" },
+  { "title": "CANCION CAMINARE", "src": "canciones/cancion-caminare.jpg", "searchTerms": "cancion caminare" },
+  { "title": "CANCION CUANDO DEBIL SOY MARTIN VALVERDE", "src": "canciones/cancion-cuando-debil-soy-martin-valverde.jpg", "searchTerms": "cancion cuando debil soy martin valverde" },
+  { "title": "CANCION DULCE CORAZON PADRE JUAN ANDRES BARRERA", "src": "canciones/cancion-dulce-corazon-padre-juan-andres-barrera.jpg", "searchTerms": "cancion dulce corazon padre juan andres barrera" },
+  { "title": "CANCION GLORIA A DIOS 1 BETO CERVANTES", "src": "canciones/cancion-gloria-a-dios-1-beto-cervantes.jpg", "searchTerms": "cancion gloria a dios 1 beto cervantes" },
+  { "title": "CANCION GRANDE ERES DIOS", "src": "canciones/cancion-grande-eres-dios.jpg", "searchTerms": "cancion grande eres dios" },
+  { "title": "CANCION HIJO PRODIGO FELIPE GOMEZ", "src": "canciones/cancion-hijo-prodigo-felipe-gomez.jpg", "searchTerms": "cancion hijo prodigo felipe gomez" },
+  { "title": "CANCION IN PERSONA CHRISTI", "src": "canciones/cancion-in-persona-christi.jpg", "searchTerms": "cancion in persona christi" },
+  { "title": "CANCION JESUS AMIGO 1", "src": "canciones/cancion-jesus-amigo-1.jpg", "searchTerms": "cancion jesus amigo 1" },
+  { "title": "CANCION OH JESUS 1 MARISOL CARRASCO", "src": "canciones/cancion-oh-jesus-1-marisol-carrasco.jpg", "searchTerms": "cancion oh jesus 1 marisol carrasco" },
+  { "title": "CANCION POR AMOR HERMANA INES DE JESUS", "src": "canciones/cancion-por-amor-hermana-ines-de-jesus.jpg", "searchTerms": "cancion por amor hermana ines de jesus" },
+  { "title": "CANCION SENOR ENSENANOS A ORAR 1", "src": "canciones/cancion-senor-ensenanos-a-orar-1.jpg", "searchTerms": "cancion senor ensenanos a orar 1" },
+  { "title": "CANCION SENOR ENSENANOS A ORAR", "src": "canciones/cancion-senor-ensenanos-a-orar.jpg", "searchTerms": "cancion senor ensenanos a orar" },
+  { "title": "CANCION TE PRESENTAMOS CON EL VINO Y CON EL PAN A", "src": "canciones/cancion-te-presentamos-con-el-vino-y-con-el-pan-a.jpg", "searchTerms": "cancion te presentamos con el vino y con el pan a" },
+  { "title": "CANCION TU PALABRA SENOR DA LA VIDA D", "src": "canciones/cancion-tu-palabra-senor-da-la-vida-d.jpg", "searchTerms": "cancion tu palabra senor da la vida d" },
+  { "title": "CANCION UN NINO SE TE ACERCO", "src": "canciones/cancion-un-nino-se-te-acerco.jpg", "searchTerms": "cancion un nino se te acerco" },
+  { "title": "CANTA DE NUEVO MARIA LUIS ENRIQUE ASCOY", "src": "canciones/canta-de-nuevo-maria-luis-enrique-ascoy.jpg", "searchTerms": "canta de nuevo maria luis enrique ascoy" },
+  { "title": "COMO LA BRISA JESUS ADRIAN ROMERO", "src": "canciones/como-la-brisa-jesus-adrian-romero.jpg", "searchTerms": "como la brisa jesus adrian romero" },
+  { "title": "CON LAS MANOS VACIAS RAFAEL MORENO", "src": "canciones/con-las-manos-vacias-rafael-moreno.jpg", "searchTerms": "con las manos vacias rafael moreno" },
+  { "title": "CONTIGO MARIA ATHENAS", "src": "canciones/contigo-maria-athenas.jpg", "searchTerms": "contigo maria athenas" },
+  { "title": "CORDERO DE DIOS DM MARTIN VALVERDE", "src": "canciones/cordero-de-dios-dm-martin-valverde.jpg", "searchTerms": "cordero de dios dm martin valverde" },
+  { "title": "CORDERO OH D OH OH CORDERO", "src": "canciones/cordero-oh-d-oh-oh-cordero.jpg", "searchTerms": "cordero oh d oh oh cordero" },
+  { "title": "CRISTO REINA 1 ATHENAS", "src": "canciones/cristo-reina-1-athenas.jpg", "searchTerms": "cristo reina 1 athenas" },
+  { "title": "CRISTO REINA ATHENAS", "src": "canciones/cristo-reina-athenas.jpg", "searchTerms": "cristo reina athenas" },
+  { "title": "CUANDO DEBIL SOY 1 CAPO 2 CEJILLA 2 F M", "src": "canciones/cuando-debil-soy-1-capo-2-cejilla-2-f-m.jpg", "searchTerms": "cuando debil soy 1 capo 2 cejilla 2 f m" },
+  { "title": "DAME UN NUEVO CORAZON", "src": "canciones/dame-un-nuevo-corazon.jpg", "searchTerms": "dame un nuevo corazon" },
+  { "title": "DIVINA MISERICORDIA RAFAEL CORONA", "src": "canciones/divina-misericordia-rafael-corona.jpg", "searchTerms": "divina misericordia rafael corona" },
+  { "title": "EL BURRITO SABANERO 1 G", "src": "canciones/el-burrito-sabanero-1-g.jpg", "searchTerms": "el burrito sabanero 1 g" },
+  { "title": "EL DIARIO DE MARIA MARTIN VALVERDE", "src": "canciones/el-diario-de-maria-martin-valverde.jpg", "searchTerms": "el diario de maria martin valverde" },
+  { "title": "ELEGISTE SENOR DM OFERTORIO", "src": "canciones/elegiste-senor-dm-ofertorio.jpg", "searchTerms": "elegiste senor dm ofertorio" },
+  { "title": "ELEGISTE SENOR 1 DM OFERTORIO", "src": "canciones/elegiste-senor-1-dm-ofertorio.jpg", "searchTerms": "elegiste senor 1 dm ofertorio" },
+  { "title": "ENAMORAME ABEL ZABALADOCX", "src": "canciones/enamorame-abel-zabaladocx.jpg", "searchTerms": "enamorame abel zabaladocx" },
+  { "title": "ES POR TU ESPIRITU DANILO MONTERO", "src": "canciones/es-por-tu-espiritu-danilo-montero.jpg", "searchTerms": "es por tu espiritu danilo montero" },
+  { "title": "ESPIRITU SANTO A SU PRESENCIA", "src": "canciones/espiritu-santo-a-su-presencia.jpg", "searchTerms": "espiritu santo a su presencia" },
+  { "title": "ESPIRITU SANTO B SU PRESENCIA", "src": "canciones/espiritu-santo-b-su-presencia.jpg", "searchTerms": "espiritu santo b su presencia" },
+  { "title": "ESPITUSANTO PETICIONES CORO FT BARAK", "src": "canciones/espitusanto-peticiones-coro-ft-barak.jpg", "searchTerms": "espitusanto peticiones coro ft barak" },
+  { "title": "ESPIRITU DE DIOS LLENA MI VIDA 1 C M", "src": "canciones/espiritu-de-dios-llena-mi-vida-1-c-m.jpg", "searchTerms": "espiritu de dios llena mi vida 1 c m" },
+  { "title": "ESPIRITU SANTO 2 ATHENAS", "src": "canciones/espiritu-santo-2-athenas.jpg", "searchTerms": "espiritu santo 2 athenas" },
+  { "title": "ESPIRITU SANTO ATHENAS", "src": "canciones/espiritu-santo-athenas.jpg", "searchTerms": "espiritu santo athenas" },
+  { "title": "ESTE PAN Y VINO SENOR C", "src": "canciones/este-pan-y-vino-senor-c.jpg", "searchTerms": "este pan y vino senor c" },
+  { "title": "EUCARISTIA KAIRY MARQUEZ", "src": "canciones/eucaristia-kairy-marquez.jpg", "searchTerms": "eucaristia kairy marquez" },
+  { "title": "GLORIA ALELUYA CELINES DIAZ", "src": "canciones/gloria-aleluya-celines-diaz.jpg", "searchTerms": "gloria aleluya celines diaz" },
+  { "title": "HASTA LA LOCURA PABLO MARTINEZ", "src": "canciones/hasta-la-locura-pablo-martinez.jpg", "searchTerms": "hasta la locura pablo martinez" },
+  { "title": "HASTA LA LOCURA F PABLO MARTINEZ", "src": "canciones/hasta-la-locura-f-pablo-martinez.jpg", "searchTerms": "hasta la locura f pablo martinez" },
+  { "title": "HAY UNA UNCION AQUI 1 INGRID ROSARIO", "src": "canciones/hay-una-uncion-aqui-1-ingrid-rosario.jpg", "searchTerms": "hay una uncion aqui 1 ingrid rosario" },
+  { "title": "HAY UNA UNCION AQUI", "src": "canciones/hay-una-uncion-aqui.jpg", "searchTerms": "hay una uncion aqui" },
+  { "title": "HOY ME QUIERO CUBRIR CON LA SANGRE DE CRISTO", "src": "canciones/hoy-me-quiero-cubrir-con-la-sangre-de-cristo.jpg", "searchTerms": "hoy me quiero cubrir con la sangre de cristo" },
+  { "title": "IGLESIA SOY Y TU TAMBIEN", "src": "canciones/iglesia-soy-y-tu-tambien.jpg", "searchTerms": "iglesia soy y tu tambien" },
+  { "title": "INUNDAMEATHENAS", "src": "canciones/inundameathenas.jpg", "searchTerms": "inundameathenas" },
+  { "title": "JESUS MI FIEL AMIGO", "src": "canciones/jesus-mi-fiel-amigo.jpg", "searchTerms": "jesus mi fiel amigo" },
+  { "title": "JESUS ERES DIGNO DE ALABAR LEVANTO MIS MANOS ATHENAS", "src": "canciones/jesus-eres-digno-de-alabar-levanto-mis-manos-athenas.jpg", "searchTerms": "jesus eres digno de alabar levanto mis manos athenas" },
+  { "title": "JESUS EUCARISTIA PRESENCIA REAL IVA MOLINA Y ABBA BAND", "src": "canciones/jesus-eucaristia-presencia-real-iva-molina-y-abba-band.jpg", "searchTerms": "jesus eucaristia presencia real iva molina y abba band" },
+  { "title": "LO MAS FRESCO HALLEL", "src": "canciones/lo-mas-fresco-hallel.jpg", "searchTerms": "lo mas fresco hallel" },
+  { "title": "MAGNIFICAT C M HEMANA GLENDA", "src": "canciones/magnificat-c-m-hemana-glenda.jpg", "searchTerms": "magnificat c m hemana glenda" },
+  { "title": "MARIA MIRAME C", "src": "canciones/maria-mirame-c.jpg", "searchTerms": "maria mirame c" },
+  { "title": "MARIA MIRAME 1 A", "src": "canciones/maria-mirame-1-a.jpg", "searchTerms": "maria mirame 1 a" },
+  { "title": "MARIA MIRAME", "src": "canciones/maria-mirame.jpg", "searchTerms": "maria mirame" },
+  { "title": "NO SE HAN IDO DEL TODO G", "src": "canciones/no-se-han-ido-del-todo-g.jpg", "searchTerms": "no se han ido del todo g" },
+  { "title": "POR TUS LLAGAS 1 NEIL VELEZ DM", "src": "canciones/por-tus-llagas-1-neil-velez-dm.jpg", "searchTerms": "por tus llagas 1 neil velez dm" },
+  { "title": "PORTONES ABRID LOS DINTELES", "src": "canciones/portones-abrid-los-dinteles.jpg", "searchTerms": "portones abrid los dinteles" },
+  { "title": "QUE ALEGRIA CUANDO ME DIJERON", "src": "canciones/que-alegria-cuando-me-dijeron.jpg", "searchTerms": "que alegria cuando me dijeron" },
+  { "title": "QUIEN PIERDA SU VIDA LA ENCUENTRA", "src": "canciones/quien-pierda-su-vida-la-encuentra.jpg", "searchTerms": "quien pierda su vida la encuentra" },
+  { "title": "RESUCITO 1 EM", "src": "canciones/resucito-1-em.jpg", "searchTerms": "resucito 1 em" },
+  { "title": "SANTO A DANIEL POLI 2", "src": "canciones/santo-a-daniel-poli-2.jpg", "searchTerms": "santo a daniel poli 2" },
+  { "title": "SANTO BAMBUCO AM", "src": "canciones/santo-bambuco-am.jpg", "searchTerms": "santo bambuco am" },
+  { "title": "SANTO FELIPE GOMEZ", "src": "canciones/santo-felipe-gomez.jpg", "searchTerms": "santo felipe gomez" },
+  { "title": "SANTO HOSSANA", "src": "canciones/santo-hossana.jpg", "searchTerms": "santo hossana" },
+  { "title": "SANTO PORTUGUES", "src": "canciones/santo-portugues.jpg", "searchTerms": "santo portugues" },
+  { "title": "SANTO SANTO ES EL SENOR E 5 CALICHE", "src": "canciones/santo-santo-es-el-senor-e-5-caliche.jpg", "searchTerms": "santo santo es el senor e 5 caliche" },
+  { "title": "SEEENOR TEN PIEDAD BM", "src": "canciones/seeenor-ten-piedad-bm.jpg", "searchTerms": "seeenor ten piedad bm" },
+  { "title": "SENOR TU TIENES PALABRAS DE VIDA 1", "src": "canciones/senor-tu-tienes-palabras-de-vida-1.jpg", "searchTerms": "senor tu tienes palabras de vida 1" },
+  { "title": "SENOR SENOR TEN PIEDAD DM PENITENCIAL GREGORIANO 1", "src": "canciones/senor-senor-ten-piedad-dm-penitencial-gregoriano-1.jpg", "searchTerms": "senor senor ten piedad dm penitencial gregoriano 1" },
+  { "title": "SERAFINES QUERUBINES FRAY NELSON", "src": "canciones/serafines-querubines-fray-nelson.jpg", "searchTerms": "serafines querubines fray nelson" },
+  { "title": "SIGUE 1 G MARTIN VALVERDE", "src": "canciones/sigue-1-g-martin-valverde.jpg", "searchTerms": "sigue 1 g martin valverde" },
+  { "title": "SOY YO BETO YADO", "src": "canciones/soy-yo-beto-yado.jpg", "searchTerms": "soy yo beto yado" },
+  { "title": "TE OFRECEMOS SENOR DM", "src": "canciones/te-ofrecemos-senor-dm.jpg", "searchTerms": "te ofrecemos senor dm" },
+  { "title": "TEN PIEDAD GREGORIANO 1 EM", "src": "canciones/ten-piedad-gregoriano-1-em.jpg", "searchTerms": "ten piedad gregoriano 1 em" },
+  { "title": "TEN PIEDAD JESED", "src": "canciones/ten-piedad-jesed.jpg", "searchTerms": "ten piedad jesed" },
+  { "title": "TODO LO HACES NUEVO E ATHENAS", "src": "canciones/todo-lo-haces-nuevo-e-athenas.jpg", "searchTerms": "todo lo haces nuevo e athenas" },
+  { "title": "TU PUEBLO TE ESPERA RAFAEL MORENO", "src": "canciones/tu-pueblo-te-espera-rafael-moreno.jpg", "searchTerms": "tu pueblo te espera rafael moreno" },
+  { "title": "TU REINARAS", "src": "canciones/tu-reinaras.jpg", "searchTerms": "tu reinaras" },
+  { "title": "VAMOS CANTAD E MARTIN VALVERDE", "src": "canciones/vamos-cantad-e-martin-valverde.jpg", "searchTerms": "vamos cantad e martin valverde" },
+  { "title": "VAMOS CANTAD 1 E MARTIN VALVERDE", "src": "canciones/vamos-cantad-1-e-martin-valverde.jpg", "searchTerms": "vamos cantad 1 e martin valverde" },
+  { "title": "VEN A LA FIESTA", "src": "canciones/ven-a-la-fiesta.jpg", "searchTerms": "ven a la fiesta" },
+  { "title": "VEN ESPIRITU SANTO 1 E MARIN VALVERDE DOCX", "src": "canciones/ven-espiritu-santo-1-e-marin-valverde-docx.jpg", "searchTerms": "ven espiritu santo 1 e marin valverde docx" },
+  { "title": "VEN ESPIRITU SANTO E MARIN VALVERDE DOCX", "src": "canciones/ven-espiritu-santo-e-marin-valverde-docx.jpg", "searchTerms": "ven espiritu santo e marin valverde docx" },
+  { "title": "VEN ESPIRITU SANTO MARIN VALVERDE DOCX", "src": "canciones/ven-espiritu-santo-marin-valverde-docx.jpg", "searchTerms": "ven espiritu santo marin valverde docx" },
+  { "title": "YA NO ERES PAN Y VINO C", "src": "canciones/ya-no-eres-pan-y-vino-c.jpg", "searchTerms": "ya no eres pan y vino c" },
+  { "title": "YA NO ERES PAN Y VINO", "src": "canciones/ya-no-eres-pan-y-vino.jpg", "searchTerms": "ya no eres pan y vino" },
+  { "title": "YO TENGO UN TELEFONO PARA HABLAR CON DIOS", "src": "canciones/yo-tengo-un-telefono-para-hablar-con-dios.jpg", "searchTerms": "yo tengo un telefono para hablar con dios" },
+  { "title": "YO TENGO UN TELEFONO", "src": "canciones/yo-tengo-un-telefono.jpg", "searchTerms": "yo tengo un telefono" },
+  { "title": "A LA NANITA NANA", "src": "canciones/a-la-nanita-nana.jpg", "searchTerms": "a la nanita nana" },
+  { "title": "ALABARE", "src": "canciones/alabare.jpg", "searchTerms": "alabare" },
+  { "title": "ALELU ALELU", "src": "canciones/alelu-alelu-alelu-aleluya.jpg", "searchTerms": "alelu alelu" },
+  { "title": "ALIANZA", "src": "canciones/alianza.jpg", "searchTerms": "alianza" },
+  { "title": "ANGELES DE DIOS", "src": "canciones/angeles-de-dios.jpg", "searchTerms": "angeles de dios" },
+  { "title": "ANTON TIRULIRULIRU", "src": "canciones/anton-tiruliruliru.jpg", "searchTerms": "anton tiruliruliru" },
+  { "title": "BENDITA SEA TU PUREZA", "src": "canciones/bendita-sea-tu-pureza.jpg", "searchTerms": "bendita sea tu pureza" },
+  { "title": "CAMINARE", "src": "canciones/caminare.jpg", "searchTerms": "caminare" },
+  { "title": "CAMPANA SOBRE CAMPANA", "src": "canciones/campana-sobre-campana.jpg", "searchTerms": "campana sobre campana" },
+  { "title": "CANTAD GOZAD ALELUYA", "src": "canciones/cantad-gozad-aleluya.jpg", "searchTerms": "cantad gozad aleluya" },
+  { "title": "CONTIGO MARIA", "src": "canciones/contigo-maria.jpg", "searchTerms": "contigo maria" },
+  { "title": "CORDERO", "src": "canciones/cordero.jpg", "searchTerms": "cordero" },
+  { "title": "EL BURRITO SABANERO", "src": "canciones/el-burrito-sabanero.jpg", "searchTerms": "el burrito sabanero" },
+  { "title": "EL CUERPO Y SANGRE", "src": "canciones/el-cuerpo-y-sangre-eres-tu.jpg", "searchTerms": "el cuerpo y sangre" },
+  { "title": "EL PADRE ABRAHAM", "src": "canciones/el-padre-abraham.jpg", "searchTerms": "el padre abraham" },
+  { "title": "EL TAMBORILERO", "src": "canciones/el-tamborilero-1.jpg", "searchTerms": "el tamborilero" },
+  { "title": "ESTA ES LA GENTE QUE ALABA AL SENOR", "src": "canciones/esta-es-la-gente-que-alaba-al-senor.jpg", "searchTerms": "esta es la gente que alaba al senor" },
+  { "title": "ESTOY A LA PUERTA Y LLAMO", "src": "canciones/estoy-a-la-puerta-y-llamo.jpg", "searchTerms": "estoy a la puerta y llamo" },
+  { "title": "EUCARISTIA MILAGRO DE AMOR", "src": "canciones/eucaristia-milagro-de-amor.jpg", "searchTerms": "eucaristia milagro de amor" },
+  { "title": "EUCARISTIA MILAGRO DE AMOR 1", "src": "canciones/eucaristia-milagro-de-amor-1.jpg", "searchTerms": "eucaristia milagro de amor 1" },
+  { "title": "GLORIA A DIOS", "src": "canciones/gloria-a-dios.jpg", "searchTerms": "gloria a dios" },
+  { "title": "GLORIA AL SENOR QUE REINA EN EL CIELO", "src": "canciones/gloria-al-senor-que-reina-en-el-cielo.jpg", "searchTerms": "gloria al senor que reina en el cielo" },
+  { "title": "GLORIA GIOMBELLINI", "src": "canciones/gloria-giombellini.jpg", "searchTerms": "gloria giombellini" },
+  { "title": "GLORIA GLORIA ALELUYA", "src": "canciones/gloria-gloria-aleluya.jpg", "searchTerms": "gloria gloria aleluya" },
+  { "title": "GRACIAS PADRE", "src": "canciones/gracias-padre.jpg", "searchTerms": "gracias padre" },
+  { "title": "GRANITO DE MOSTAZA", "src": "canciones/granito-de-mostaza.jpg", "searchTerms": "granito de mostaza" },
+  { "title": "HAS CAMBIADO MI LAMENTO EN BAILE", "src": "canciones/has-cambiado-mi-lamento-en-baile.jpg", "searchTerms": "has cambiado mi lamento en baile" },
+  { "title": "HAY UNA UNCION", "src": "canciones/hay-una-uncion.jpg", "searchTerms": "hay una uncion" },
+  { "title": "HOY HE VUELTO", "src": "canciones/hoy-he-vuelto.jpg", "searchTerms": "hoy he vuelto" },
+  { "title": "HOY HE VUELTO MADRE A RECORDAR", "src": "canciones/hoy-he-vuelto-madre-a-recordar.jpg", "searchTerms": "hoy he vuelto madre a recordar" },
+  { "title": "HOY PERDONAME", "src": "canciones/hoy-perdoname.jpg", "searchTerms": "hoy perdoname" },
+  { "title": "JESUS ESTA PASANDO", "src": "canciones/jesus-esta-pasando.jpg", "searchTerms": "jesus esta pasando" },
+  { "title": "JUNTO A TI MARIA", "src": "canciones/junto-ati-maria.jpg", "searchTerms": "junto a ti maria" },
+  { "title": "LA MISA ES UNA FIESTA MUY ALEGRE", "src": "canciones/la-misa-es-una-fiesta-muy-alegre.jpg", "searchTerms": "la misa es una fiesta muy alegre" },
+  { "title": "LEVANTATE SALMO 68", "src": "canciones/levantate-salmo-68.jpg", "searchTerms": "levantate salmo 68" },
+  { "title": "LOS PECES EN EL RIO", "src": "canciones/los-peces-en-el-rio.jpg", "searchTerms": "los peces en el rio" },
+  { "title": "LOS REYES MAGOS", "src": "canciones/los-reyes-magos.jpg", "searchTerms": "los reyes magos" },
+  { "title": "MADRE ERES TERNURA", "src": "canciones/madre-eres-ternura.jpg", "searchTerms": "madre eres ternura" },
+  { "title": "MAS ALLA DEL SOL", "src": "canciones/mas-alla-del-sol.jpg", "searchTerms": "mas alla del sol" },
+  { "title": "MI BARQUITA", "src": "canciones/mi-barquita.jpg", "searchTerms": "mi barquita" },
+  { "title": "NADIE TE AMA COMO YO", "src": "canciones/nadie-te-ama-como-yo.jpg", "searchTerms": "nadie te ama como yo" },
+  { "title": "NINA", "src": "canciones/nina.jpg", "searchTerms": "nina" },
+  { "title": "NO HAY DIOS TAN GRANDE COMO TU", "src": "canciones/no-hay-dios-tan-grande-como-tu.jpg", "searchTerms": "no hay dios tan grande como tu" },
+  { "title": "NOCHE DE PAZ", "src": "canciones/noche-de-paz.jpg", "searchTerms": "noche de paz" },
+  { "title": "PADRE NUESTRO", "src": "canciones/padre-nuestro.jpg", "searchTerms": "padre nuestro" },
+  { "title": "PAZ PAZ PAZ", "src": "canciones/paz-paz-paz.jpg", "searchTerms": "paz paz paz" },
+  { "title": "PESCADOR DE HOMBRES", "src": "canciones/pescador-de-hombres.jpg", "searchTerms": "pescador de hombres" },
+  { "title": "PIEDAD", "src": "canciones/piedad.jpg", "searchTerms": "piedad" },
+  { "title": "PREPARAD EL CAMINO", "src": "canciones/preparad-el-camino.jpg", "searchTerms": "preparad el camino" },
+  { "title": "QUEREMOS DARTE LAS GRACIAS", "src": "canciones/queremos-darte-las-gracias.jpg", "searchTerms": "queremos darte las gracias" },
+  { "title": "QUIEN ES ESE", "src": "canciones/quien-es-ese.jpg", "searchTerms": "quien es ese" },
+  { "title": "QUISIERA AL MUNDO", "src": "canciones/quisiera-al-mundo.jpg", "searchTerms": "quisiera al mundo" },
+  { "title": "RENUEVAME", "src": "canciones/renuevame.jpg", "searchTerms": "renuevame" },
+  { "title": "SALVE REINA Y MADRE", "src": "canciones/salve-reina-y-madre.jpg", "searchTerms": "salve reina y madre" },
+  { "title": "SALVE REINA Y MADRE 2", "src": "canciones/salve-reina-y-madre-1.jpg", "searchTerms": "salve reina y madre 2" },
+  { "title": "SANTA MARIA DEL CAMINO", "src": "canciones/santa-maria-del-camino.jpg", "searchTerms": "santa maria del camino" },
+  { "title": "SANTAMARIA DEL CAMINO", "src": "canciones/santamaria-del-camino.jpg", "searchTerms": "santamaria del camino" },
+  { "title": "SANTO", "src": "canciones/santo.jpg", "searchTerms": "santo" },
+  { "title": "SANTO ES EL SEÑOR", "src": "canciones/santo-es-el-senor-1.jpg", "searchTerms": "santo es el señor" },
+  { "title": "SANTO ES EL SEÑOR MI DIOS", "src": "canciones/santo-es-el-senor-mi-dios.jpg", "searchTerms": "santo es el señor mi dios" },
+  { "title": "SANTO GIOMBELLINI", "src": "canciones/santo-giombellini.jpg", "searchTerms": "santo giombellini" },
+  { "title": "SANTO MARINERA", "src": "canciones/santo-marinera.jpg", "searchTerms": "santo marinera" },
+  { "title": "SANTO SANTO ANGELES", "src": "canciones/santo-santo-santo-angeles.jpg", "searchTerms": "santo santo angeles" },
+  { "title": "SOMOS UN PUEBLO QUE CAMINA", "src": "canciones/somos-un-pueblo-que-camina.jpg", "searchTerms": "somos un pueblo que camina" },
+  { "title": "TAN CERCA DE MI", "src": "canciones/tan-cerca-de-mi.jpg", "searchTerms": "tan cerca de mi" },
+  { "title": "TE DEN GRACIAS", "src": "canciones/te-den-gracias.jpg", "searchTerms": "te den gracias" },
+  { "title": "TE PRESENTAMOS EL VINO Y EL PAN", "src": "canciones/te-presentamos-el-vino-y-el-pan.jpg", "searchTerms": "te presentamos el vino y el pan" },
+  { "title": "TEN PIEDAD", "src": "canciones/ten-piedad-por-los-ninos-y-las-flores.jpg", "searchTerms": "ten piedad" },
+  { "title": "TEN PIEDAD SOY PECADOR", "src": "canciones/ten-piedad-soy-pecador.jpg", "searchTerms": "ten piedad soy pecador" },
+  { "title": "TU PALABRA ME DA VIDA", "src": "canciones/tu-palabra-me-da-vida.jpg", "searchTerms": "tu palabra me da vida" },
+  { "title": "TU PUEBLO TE ESPERA", "src": "canciones/tu-pueblo-te-espera.jpg", "searchTerms": "tu pueblo te espera" },
+  { "title": "TUTAINA", "src": "canciones/tutaina.jpg", "searchTerms": "tutaina" },
+  { "title": "UNA ESPIGA", "src": "canciones/una-espiga.jpg", "searchTerms": "una espiga" },
+  { "title": "UNA ESPIGA DORADA", "src": "canciones/una-espiga-dorada-por-el-sol.jpg", "searchTerms": "una espiga dorada" },
+  { "title": "VAMOS CANTA CANTA", "src": "canciones/vamos-canta-canta.jpg", "searchTerms": "vamos canta canta" },
+  { "title": "VAMOS PASTORES", "src": "canciones/vamos-pastores.jpg", "searchTerms": "vamos pastores" },
+  { "title": "VEN ESPIRITU SANTO", "src": "canciones/ven-espiritu-santo.jpg", "searchTerms": "ven espiritu santo" },
+  { "title": "VEN VEN A NUESTRAS ALMAS", "src": "canciones/ven-ven-a-nuestras-almas-y-dulce-jesus-mio.jpg", "searchTerms": "ven ven a nuestras almas" },
+  { "title": "YA LLEGO LA FECHA", "src": "canciones/ya-llego-la-fecha.jpg", "searchTerms": "ya llego la fecha" },
+  { "title": "YO TENGO UN AMIGO", "src": "canciones/yo-tengo-un-amigo.jpg", "searchTerms": "yo tengo un amigo" },
+  { "title": "ZAGALILLOS", "src": "canciones/zagalillos.jpg", "searchTerms": "zagalillos" }
+];
 
+    // RENDERIZADO INICIAL
+    function renderSongs() {
+        const container = document.getElementById('songList');
+        container.innerHTML = ''; 
+
+        songs.forEach((song, index) => {
+            const id = index + 1;
+            const card = document.createElement('div');
+            card.className = 'song-card';
+            card.id = `song-${id}`;
+
+            card.innerHTML = `
+                <input type="checkbox" class="song-checkbox" onchange="toggleFromPlaylist('${id}', '${song.title}')">
+                <div class="song-header" onclick="toggle(this)">
+                    ${id}. ${song.title}
+                    <span class="icon">▼</span>
+                </div>
+                <div class="song-content">
+                    <img src="${song.src}" 
+                         loading="lazy" 
+                         class="song-img" 
+                         onerror="markAsBroken(this)">
+                    <div class="search-tags">${song.searchTerms}</div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    // --- MANEJO DE IMÁGENES ROTAS (LÓGICA MEJORADA) ---
+    function markAsBroken(img) {
+        // Marca la tarjeta con una clase especial para que el buscador sepa ignorarla siempre
+        const card = img.closest('.song-card');
+        card.classList.add('broken-link');
+        console.log('Ocultada (No existe):', card.id);
+    }
+
+    // Inicialización
+    document.addEventListener('DOMContentLoaded', () => {
+        renderSongs();
+        loadPlaylist();
+        processUrlParams();
+    });
+
+    // --- FUNCIONES DE LISTA Y INTERACCIÓN ---
     function loadPlaylist() {
         const playlist = JSON.parse(localStorage.getItem('eucaristiaPlaylist')) || [];
         const playlistContainer = document.getElementById('playlist-items');
-        
-        // Limpiar visualmente
         playlistContainer.innerHTML = '';
-
         if (playlist.length === 0) {
-            playlistContainer.innerHTML = '<div class="playlist-placeholder">Selecciona canciones abajo para armar la misa...</div>';
-            // Desmarcar todos los checkboxes visualmente
+            playlistContainer.innerHTML = '<div class="playlist-placeholder">Selecciona canciones abajo...</div>';
             document.querySelectorAll('.song-checkbox').forEach(cb => cb.checked = false);
             return;
         }
-
         playlist.forEach(song => {
-            // 1. Agregar al panel amarillo
-            addVisualItemToPlaylist(song.id, song.title);
-            
-            // 2. Marcar el checkbox correspondiente abajo
+            addVisualItem(song.id, song.title);
             const checkbox = document.querySelector(`#song-${song.id} .song-checkbox`);
             if (checkbox) checkbox.checked = true;
         });
     }
 
-    // Cuando marcas/desmarcas un checkbox
     function toggleFromPlaylist(id, title) {
         let playlist = JSON.parse(localStorage.getItem('eucaristiaPlaylist')) || [];
-        const checkbox = document.querySelector(`#song-${id} .song-checkbox`);
-
-        if (checkbox.checked) {
-            // AGREGAR (si no existe ya)
-            if (!playlist.some(s => s.id === id)) {
-                playlist.push({ id: id, title: title });
-                addVisualItemToPlaylist(id, title);
-            }
-        } else {
-            // ELIMINAR
-            playlist = playlist.filter(s => s.id !== id);
-            removeVisualItem(id);
-        }
-        
-        // Guardar en el navegador
+        const index = playlist.findIndex(item => item.id === id);
+        if (index === -1) { playlist.push({ id, title }); addVisualItem(id, title); } 
+        else { playlist.splice(index, 1); removeVisualItem(id); }
         localStorage.setItem('eucaristiaPlaylist', JSON.stringify(playlist));
-        
-        // Manejar el mensaje de "vacío"
-        if (playlist.length === 0) {
-            document.getElementById('playlist-items').innerHTML = '<div class="playlist-placeholder">Selecciona canciones abajo para armar la misa...</div>';
-        } else {
-            const placeholder = document.querySelector('.playlist-placeholder');
-            if (placeholder) placeholder.remove();
-        }
+        loadPlaylist();
     }
 
-    function addVisualItemToPlaylist(id, title) {
+    function addVisualItem(id, title) {
+        if (document.getElementById(`playlist-item-${id}`)) return;
         const list = document.getElementById('playlist-items');
         const placeholder = document.querySelector('.playlist-placeholder');
         if (placeholder) placeholder.remove();
-
         const li = document.createElement('li');
         li.className = 'playlist-item';
         li.id = `playlist-item-${id}`;
-        // El enlace hace scroll suave hasta la canción y la abre
-        li.innerHTML = `
-            <a href="#song-${id}" onclick="scrollToSong('song-${id}')">${title}</a>
-        `;
+        li.innerHTML = `<a href="#song-${id}" onclick="scrollToSong('song-${id}')">${title}</a>`;
         list.appendChild(li);
     }
 
@@ -825,71 +438,116 @@
     }
 
     function clearPlaylist() {
-        if(confirm('¿Estás seguro de borrar toda la lista de hoy?')) {
+        if(confirm('¿Borrar toda la lista?')) {
             localStorage.removeItem('eucaristiaPlaylist');
             loadPlaylist();
         }
     }
 
     function scrollToSong(elementId) {
-        // Cierra todas primero
+        // CORRECCION 2: Limpiar filtro de búsqueda al hacer clic en la lista
+        document.getElementById('searchBar').value = '';
+        searchSongs(); // Restaurar visibilidad de todas
+
         document.querySelectorAll('.song-card').forEach(c => c.classList.remove('active'));
-        
         const element = document.getElementById(elementId);
         if (element) {
-            // Abre la seleccionada
             element.classList.add('active');
-            // Scroll hasta ella
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setTimeout(() => { // Pequeño retardo para asegurar que el renderizado esté listo
+                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
         }
     }
 
-    // Función para enviar a WhatsApp
+    function toggle(header) { header.parentElement.classList.toggle('active'); }
+
+    // --- NUEVAS FUNCIONES ---
+
+    // 1. Share mejorado
     function shareToWhatsapp() {
         const playlist = JSON.parse(localStorage.getItem('eucaristiaPlaylist')) || [];
+        if (playlist.length === 0) { alert("Selecciona canciones primero."); return; }
         
-        if (playlist.length === 0) {
-            alert("Primero selecciona algunas canciones.");
-            return;
-        }
-
-        // Crear el mensaje
-        let mensaje = "*Repertorio para la Eucaristía:*\n\n";
-        playlist.forEach((song, index) => {
-            mensaje += `${index + 1}. ${song.title}\n`;
+        let mensaje = "*REPERTORIO EUCARISTIA*\n\n";
+        playlist.forEach((song, index) => { 
+            mensaje += `${index + 1}. *${song.title}*\n`; 
         });
-        mensaje += "\n Ver canciones aquí: " + window.location.href;
 
-        // Abrir WhatsApp
-        let url = "https://wa.me/?text=" + encodeURIComponent(mensaje);
-        window.open(url, '_blank');
+        const ids = playlist.map(item => item.id).join(',');
+        const baseUrl = window.location.origin + window.location.pathname;
+        const shareUrl = baseUrl + '?list=' + ids;
+
+        mensaje += "\nVer repertorio y letras aquí:\n" + shareUrl;
+
+        window.open("https://wa.me/?text=" + encodeURIComponent(mensaje), '_blank');
     }
 
-
-    // ----------------------------------------------
-    // FUNCIONES BÁSICAS (Abrir y Buscar)
-    // ----------------------------------------------
-
-    function toggle(header) {
-        var card = header.parentElement;
-        card.classList.toggle('active');
-    }
-
+    // 2. Busqueda delegada
     function searchSongs() {
-        var input = document.getElementById('searchBar');
-        var filter = input.value.toUpperCase();
-        var cards = document.getElementsByClassName('song-card');
+        filterView();
+    }
 
-        for (var i = 0; i < cards.length; i++) {
-            var card = cards[i];
-            var text = card.innerText || card.textContent;
-            if (text.toUpperCase().indexOf(filter) > -1) {
-                card.style.display = "";
+    // 3. Logica de Tabs y URL
+    let currentTab = 'total'; 
+
+    function switchTab(tab) {
+        currentTab = tab;
+        document.getElementById('tab-total').classList.toggle('active', tab === 'total');
+        document.getElementById('tab-partial').classList.toggle('active', tab === 'partial');
+        filterView();
+    }
+
+    function filterView() {
+        const playlist = JSON.parse(localStorage.getItem('eucaristiaPlaylist')) || [];
+        const selectedIds = new Set(playlist.map(p => String(p.id)));
+        
+        const cards = document.getElementsByClassName('song-card');
+        const searchInput = document.getElementById('searchBar');
+        const searchVal = searchInput ? searchInput.value.toUpperCase().trim() : "";
+
+        for (let i = 0; i < cards.length; i++) {
+            let card = cards[i];
+            let cardId = card.id.replace('song-', '');
+            let isSelected = selectedIds.has(cardId);
+            let matchesSearch = true;
+
+            if (searchVal !== "") {
+                let text = card.innerText || card.textContent;
+                if (text.toUpperCase().indexOf(searchVal) === -1) matchesSearch = false;
+            }
+
+            if (card.classList.contains('broken-link')) {
+                card.style.display = "none"; 
+            } else if (currentTab === 'partial' && !isSelected) {
+                card.style.display = "none"; 
+            } else if (matchesSearch) {
+                card.style.display = ""; 
             } else {
-                card.style.display = "none";
+                card.style.display = "none"; 
             }
         }
     }
+
+    function processUrlParams() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const listParam = urlParams.get('list');
+        if (listParam) {
+            const idsToSelect = listParam.split(',');
+            let newPlaylist = [];
+            idsToSelect.forEach(idStr => {
+                const id = parseInt(idStr); 
+                const songIndex = id - 1;   
+                if (songs[songIndex]) {
+                    newPlaylist.push({ id: String(id), title: songs[songIndex].title });
+                }
+            });
+            localStorage.setItem('eucaristiaPlaylist', JSON.stringify(newPlaylist));
+            loadPlaylist(); 
+            renderSongs();
+            switchTab('partial');
+        }
+    }
+
 </script>
 
 </body>
